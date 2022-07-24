@@ -55,7 +55,8 @@ function Board() {
       user: turn,
     });
     setHistory(copyHistory);
-
+    //불변성을 유지 안하니 다음 턴에 등록되는 문제가 발생함...
+    //state의 불변성을 유지하면서 자유자재로 다룰 수 있는게 관건일듯...
     const colSum = [];
     const rowCopy = copy[split[0]];
     rowCopy.map((col) => {
@@ -85,22 +86,13 @@ function Board() {
       return;
     }
 
-    // copy.map((row) => {
-    //   let strings = "";
-    //   row.map((box) => {
-    //     strings += box.value !== null ? box.value : ".";
-    //   });
-    // });
-    console.log(rowCopy);
-    console.log(colCopy);
-    console.log(copyHistory);
     const turnHistory = [...copyHistory]
       .filter((x) => x.user === turn)
       .sort((a, b) => {
         return a.row - b.row;
       });
     let digonal = [];
-    console.log(turnHistory);
+
     turnHistory.map((x) => {
       const bottomRight = [];
       const bottomLeft = [];
@@ -119,8 +111,7 @@ function Board() {
         );
         if (left !== undefined) bottomLeft.push(left);
       }
-      //   console.log(bottomRight, bottomLeft);
-      //   console.log("====================");
+
       xGap.current -= 4;
       if (bottomRight.length === 4) {
         return (digonal = [...bottomRight]);
@@ -135,6 +126,7 @@ function Board() {
     if (winner !== ".") {
       return;
     }
+
     setTurn(turn === "X" ? "O" : "X");
   };
   return (
