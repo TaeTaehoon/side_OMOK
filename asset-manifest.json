@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/side_OMOK/static/css/main.4e129601.css",
+    "main.js": "/side_OMOK/static/js/main.6e88d508.js",
+    "index.html": "/side_OMOK/index.html",
+    "main.4e129601.css.map": "/side_OMOK/static/css/main.4e129601.css.map",
+    "main.6e88d508.js.map": "/side_OMOK/static/js/main.6e88d508.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4e129601.css",
+    "static/js/main.6e88d508.js"
+  ]
+}
